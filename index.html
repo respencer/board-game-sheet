@@ -1,41 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Boardgame Sheet Generator</title>
+    <link rel="stylesheet" href="style.css?v=0" />
+</head>
 
-<link rel="stylesheet" href="style.css?v=0" />
-
+<body>
 <div id="main">
-    <h1>Game sheet generator</h1>
+    <h1>Boardgame sheet generator</h1>
 
-    <label for="selectGioco">Gioco:</label><br/>
-        <i><small>Inserisci il nome (o una parte di almeno 3 lettere) del gioco</small></i><br/>
-    <input type="text" id="giocoColl" name="giocoColl" placeholder="Nome gioco" onfocusout="loadGiochi()"/><br/>
+    <label for="selectGioco">Game:</label><br/>
+        <i><small>Enter the name (or at least 3 letters) of the game</small></i><br/>
+    <input type="text" id="giocoColl" name="giocoColl" placeholder="Game name" onfocusout="loadGiochi()"/><br/>
     <br/>
-        <i><small>Seleziona il gioco da questa lista</small></i><br/>
+        <i><small>Select the game from this list</small></i><br/>
     <select id="selectGioco" name="selectGioco" onchange="GiocoSelezionato()" ></select>
 
-    <h2>Info in riga</h2>
+    <h2>Info in line</h2>
     <div class="info-text">{{infoInRiga}}</div>
 
-    <h2>Puoi personalizzare le info qua</h2>
+    <h2>You can customize the info here</h2>
     <form>
-        Nome: <input type="text" v-model="gameName" /><br/>
-        Autore: <input type="text" v-model="designerJoin" /><br/>
-        Artista: <input type="text" v-model="artistJoin" /><br/>
-        Minimo giocatori: <input type="number" v-model="minplayers" /><br/>
-        Massimo giocatori: <input type="number" v-model="maxplayers" /><br/>
-        Minimo durata: <input type="number" v-model="minplaytime" /><br/>
-        Massimo durata: <input type="number" v-model="maxplaytime" /><br/>
-        Minimo età: <input type="number" v-model="minage" /><br/>
-        Editore: <input type="text" v-model="publisherJoin" /><br/>
-        Prezzo (lascia la casella vuota per non mostrarlo in immagine): <input type="text" v-model="price" placeholder="nessun prezzo" /><br/>
-        Immagine (lascia la casella vuota per non mostrarla in immagine): <input type="text" v-model="thumbnail" placeholder="nessuna immagine" /><br/>
+        Name: <input type="text" v-model="gameName" /><br/>
+        Designer: <input type="text" v-model="designerJoin" /><br/>
+        Artist: <input type="text" v-model="artistJoin" /><br/>
+        Minimum players: <input type="number" v-model="minplayers" /><br/>
+        Maximum players: <input type="number" v-model="maxplayers" /><br/>
+        Minimum playtime: <input type="number" v-model="minplaytime" /><br/>
+        Maximum playtime: <input type="number" v-model="maxplaytime" /><br/>
+        Minimum age: <input type="number" v-model="minage" /><br/>
+        Publisher: <input type="text" v-model="publisherJoin" /><br/>
+        Price (leave the box blank so as not to show it in the image): <input type="text" v-model="price" placeholder="no price" /><br/>
+        Image (leave the box empty to not show it in the image): <input type="text" v-model="thumbnail" placeholder="no image" /><br/>
     </form>
 
-    <h2>Link al gioco</h2>
+    <h2>Game link</h2>
     <div class="game-url">
         <a :href="'https://boardgamegeek.com/boardgame/' + id" target=_blank>{{gameName}}</a> <br/>
-        <a :href="'https://magicmerchant.it/search/?q=' + gameName + '&selected_facets=category%3AGiochi+da+Tavolo'" target=_blank>Cerca {{gameName}} su MagicMerchant.it</a> 
     </div>
 
-    <h2>Immagini</h2>
+    <h2>Images</h2>
     <div class="game-img">
         <img :src='sheetImage' /> <br/>
         <img :src='thumbnail_static' /> <br/>
@@ -43,7 +48,7 @@
     </div>
 
 <!--
-    <h2>Anteprima</h2>
+    <h2>Preview</h2>
     <div class="preview-box">
         <div class="game-box">
             <div class="top"><div class="name"        >{{gameName}}</div></div>
@@ -59,7 +64,7 @@
     </div>
 
 
-    <h2>Codice da copiare</h2>
+    <h2>Code to copy</h2>
     <textarea name="code" id=code  type=text onClick="this.select();" cols="120" rows="15"></textarea>
 -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -91,3 +96,5 @@
         </span>
     </div>
 </footer>
+</body>
+</html>
