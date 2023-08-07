@@ -9,7 +9,7 @@ var datiGioco = null, json_datiGioco = null;
 xhrDetail.onload = function () {
     // Process our return data
     if (xhrDetail.status >= 200 && xhrDetail.status < 300) {
-        // What do when the request is successful
+        // What to do when the request is successful
         console.log("success!", xhrDetail);
         //parser = new DOMParser();
         //xmlDoc = parser.parseFromString(xhr.responseXml,"text/xml");
@@ -61,7 +61,7 @@ var main = new Vue({
     el: '#main',
     data: {
         id: 0,
-        gameName: "Nome gioco",
+        gameName: "name",
         designer: ["designer"],
         designerJoin: "designer",
         artist: ["artist"],
@@ -80,7 +80,7 @@ var main = new Vue({
     },
     computed: {
         infoInRiga: function(){                    
-            //es. Autori: Isaac Childres | Artisti: Alexandr Elichev, Josh T. McDowell, Alvaro Nebot | Giocatori: 1-4 | Durata: 60-120′ | Età: 14+ | Editore: Asmodee Italia
+            //e.g.: Authors: Isaac Childres | Artists: Alexandr Elichev, Josh T. McDowell, Alvaro Nebot | Players: 1-4 | Duration: 60-120′ | Ages: 14+ | Publisher: Asmodee Italy
          
             let components = [];
 
@@ -89,9 +89,9 @@ var main = new Vue({
                 let stringa = "";
 
                 if(this.designer.length > 1)
-                    stringa += "Autori: ";
+                    stringa += "Designers: ";
                 else
-                    stringa += "Autore: ";
+                    stringa += "Designer: ";
 
                 stringa += this.designerJoin;
 
@@ -103,28 +103,28 @@ var main = new Vue({
                 let stringa = "";
 
                 if(this.artist.length > 1)
-                    stringa += "Artisti: ";
+                    stringa += "Artists: ";
                 else
-                    stringa += "Artista: ";
+                    stringa += "Artist: ";
 
                 stringa += this.artistJoin;      
                 components.push(stringa)          
             }
 
-            components.push("Giocatori: " + this.players);
+            components.push("Players: " + this.players);
 
-            components.push("Durata: " + this.playtime);
+            components.push("Playtime: " + this.playtime);
 
-            components.push("Età: " + this.minage + "+");
+            components.push("Age: " + this.minage + "+");
 
             if(this.publisher.length > 0)
             {
                 let stringa = "";
 
                 if(this.publisher.length > 1)
-                    stringa += "Editori: ";
+                    stringa += "Publishers: ";
                 else
-                    stringa += "Editore: ";
+                    stringa += "Publisher: ";
 
                 stringa += this.publisherJoin;      
                 components.push(stringa)          
