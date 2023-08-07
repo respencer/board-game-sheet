@@ -139,16 +139,8 @@ var main = new Vue({
             return this.minplaytime + (this.minplaytime !== this.maxplaytime ? "-" + this.maxplaytime : "")
         },
         sheetImage: function(){
-            return "https://geek.pizza/telegram/@PizzaMeepleBot/Images/schedagioco/?" + 
-                "t=" + encodeURIComponent(this.gameName) + 
-                "&a=" + encodeURIComponent(this.designerJoin) + 
-                "&i=" + encodeURIComponent(this.artistJoin) + 
-                "&e=" + encodeURIComponent(this.publisherJoin) + 
-                "&m=" + this.players + 
-                "&n=" + this.playtime +
-                "&l=" + this.minage + 
-                "&p=" + this.price + 
-                "&j=" + this.thumbnail; 
+             //todo
+
         }
     },
     methods: { 
